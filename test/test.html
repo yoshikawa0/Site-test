@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <script>mocha.setup('bdd');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <script>var assert = chai.assert;</script>
+</head>
+<body>
+<script src="../js/ls.js"></script>
+<script>
+function testCart(array){
+  let backupArray = getStoreArray();
+  clearCart();
+
+  setStoreArray(array);
+  let cartNow = getStoreArray();
+
+  clearCart();   
+  setStoreArray(backupArray);
+
+  return cartNow;
+}
+function testCartSave(item1,item2){
+  let backupArray = getStoreArray();
+  clearCart();
+
+  save(item1);
+  save(item2);
+  let cartNow = getStoreArray();
+
+  clearCart();
+  setStoreArray(backupArray);
+
+  return cartNow;
+}
+function testCartClearItem(arrayToSave,itemToClear){
+  let backupArray = getStoreArray();
+  clearCart();
+
+  setStoreArray(arrayToSave);
+  clearItem(itemToClear);
+  let cartNow = getStoreArray();
+
+  clearCart();
+  setStoreArray(backupArray);
+  
+  return cartNow;
+}
+</script>
+<script src="test.js"></script>
+<div id="mocha"></div>
+<script>mocha.run();</script>
+</body>
+</html>
