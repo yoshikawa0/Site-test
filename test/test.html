@@ -13,6 +13,14 @@
 <body>
 <script src="../js/ls.js"></script>
 <script>
+/**
+*test function that work with cart in localStorage
+*1.bakup old cart, and clear cart in localStorage
+*2.set cart array with our test values
+*3.get cart array with our test value from localStorage
+*4.clear cart and set our backed up array back
+*5.return our test array that we retrieved from localStorage before
+*/
 function testCart(array){
   let backupArray = getStoreArray();
   clearCart();
@@ -25,6 +33,14 @@ function testCart(array){
 
   return cartNow;
 }
+/**
+*test save function that work with cart in localStorage
+*1.backup old cart, and clear cart in localStorage
+*2.save 2 test value
+*3.get cart array with our test value from localStorage
+*4.clear cart and set our backed up array back
+*5.return our test array that we retrieved from localStorage before
+*/
 function testCartSave(item1,item2){
   let backupArray = getStoreArray();
   clearCart();
@@ -38,6 +54,14 @@ function testCartSave(item1,item2){
 
   return cartNow;
 }
+/**
+*test clear function that work with cart in localStorage
+*1.backup old cart, and clear cart in localStorage
+*2.save test array and clear item
+*3.get new cart array from localStorage
+*4.clear cart and set our backed up array back
+*5.return our test array that we retrieved from localStorage before
+*/
 function testCartClearItem(arrayToSave,itemToClear){
   let backupArray = getStoreArray();
   clearCart();
